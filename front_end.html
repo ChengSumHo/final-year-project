@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+</head>
+<body>
+    <h1>User Management</h1>
+
+    <h2>Update User</h2>
+    <form id="updateForm">
+        <input type="text" id="updateId" placeholder="User ID" required>
+        <input type="text" id="updateName" placeholder="New Name" required>
+        <input type="email" id="updateEmail" placeholder="New Email" required>
+        <input type="text" id="updatePhoto" placeholder="New Photo URL">
+        <button type="submit">Update User</button>
+    </form>
+
+    <h2>Delete User</h2>
+    <form id="deleteForm">
+        <input type="text" id="deleteId" placeholder="User ID" required>
+        <button type="submit">Delete User</button>
+    </form>
+
+    <script>
+        // Update User
+        document.getElementById('updateForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('updateId').value;
+            const name = document.getElementById('updateName').value;
+            const email = document.getElementById('updateEmail').value;
+            const photo_url = document.getElementById('updatePhoto').value;
+
+            const response = await fetch(`/users/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, photo_url }),
+            });
+
+            const result = await response.json();
+            alert(result.message || result.error);
+        });
+
+        // Delete User
+        document.getElementById('deleteForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('deleteId').value;
+
+            const response = await fetch(`/users/${id}`, {
+                method: 'DELETE',
+            });
+
+            const result = await response.json();
+            alert(result.message || result.error);
+        });
+    </script>
+</body>
+</html>
