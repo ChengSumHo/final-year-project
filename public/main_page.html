@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+        #formContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>User Authentication</h2>
+<p>Please choose an option below:</p>
+<button id="signupButton" onclick="location.href='/signup'">Sign Up</button>
+<button id="loginButton" onclick="location.href='/login'">Login</button>
+
+<div id="formContainer"></div>
+
+</body>
+</html>
