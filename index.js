@@ -78,3 +78,4 @@ app.get('/users/:id', async (req, res) => {
     });
 });
 fetchData();
+app;
